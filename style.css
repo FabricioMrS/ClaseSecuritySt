@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    color: #e4f2e7;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(35, 91, 55, 0.28), transparent 55%),
+        #07120c;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body::before,
+body::after {
+    position: fixed;
+    z-index: 0;
+    width: max-content;
+    color: #78ba78;
+    font: 700 0.8rem/1.8 monospace;
+    letter-spacing: 0.8em;
+    white-space: nowrap;
+    opacity: 0.13;
+    pointer-events: none;
+    animation: drift-numbers 34s linear infinite;
+}
+
+body::before {
+    top: 13%;
+    content: "01001011 10110100 00101101 11001010 01010110 10100011 01101001 10010110 00111010 10101100 01011001 11010010 01100101 10011010 00101111 10100100";
+}
+
+body::after {
+    right: 0;
+    bottom: 12%;
+    content: "10110010 01001101 11010100 00110110 10011001 01101010 10100101 01011011 11001001 00101110 10110100 01100110 10001011 01011001 11010010 00110101";
+    animation-delay: -17s;
+    animation-duration: 42s;
+    animation-direction: reverse;
+}
+
+@keyframes drift-numbers {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 560px);
+    padding: 0 0 24px;
+    text-align: center;
+    border-bottom: 1px solid #294d35;
+}
+
+header h1 {
+    margin: 0;
+    color: #b6d9bd;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    letter-spacing: 0.16em;
+}
+
+header p {
+    margin: 10px 0 18px;
+    color: #789b80;
+    font-size: 0.76rem;
+    letter-spacing: 0.2em;
+}
+
+header span {
+    display: inline-block;
+    padding: 7px 12px;
+    color: #d3ef9a;
+    background: #1b321d;
+    border: 1px solid #55733b;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 420px);
+    margin: 28px 0;
+    padding: 32px;
+    background: linear-gradient(145deg, #112219, #0c1911);
+    border: 1px solid #294d35;
+    border-radius: 8px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+main h2 {
+    margin: 0 0 10px;
+    color: #d2e8d5;
+    font-size: 1.25rem;
+    letter-spacing: 0.12em;
+}
+
+main p {
+    margin: 0 0 24px;
+    color: #91aa96;
+}
+
+input {
+    width: 100%;
+    margin: 0 0 14px;
+    padding: 13px 14px;
+    color: #e4f2e7;
+    background: #09140d;
+    border: 1px solid #34563d;
+    border-radius: 4px;
+    font: inherit;
+}
+
+input::placeholder {
+    color: #718b76;
+}
+
+input:focus {
+    outline: 2px solid #76a95c;
+    outline-offset: 2px;
+    border-color: #76a95c;
+}
+
+button {
+    width: 100%;
+    margin-top: 4px;
+    padding: 13px 16px;
+    color: #07120c;
+    background: #8ebc62;
+    border: 1px solid #a7d47b;
+    border-radius: 4px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+button:hover {
+    background: #a4d477;
+    box-shadow: 0 0 18px rgba(142, 188, 98, 0.28);
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 2px solid #d3ef9a;
+    outline-offset: 3px;
+}
+
+#result {
+    min-height: 1.5em;
+    margin-top: 18px;
+    color: #c6e19c;
+    font-size: 0.92rem;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 560px);
+    color: #617968;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 26px 20px;
+    }
+
+    header p {
+        letter-spacing: 0.12em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+        left: 0;
+        transform: none;
+    }
+}
